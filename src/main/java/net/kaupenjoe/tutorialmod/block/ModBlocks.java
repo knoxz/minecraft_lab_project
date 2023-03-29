@@ -184,11 +184,15 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> KAUPEN_PORTAL = registerBlockWithoutBlockItem("kaupen_portal",
-                KJPortalBlock::new);
+            KJPortalBlock::new);
 
     public static final RegistryObject<Block> ANIMATED_BLOCK = registerBlockWithoutBlockItem("animated_block",
-                () -> new AnimatedBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()));
+            () -> new AnimatedBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()));
 
+
+    public static final RegistryObject<Block> POTION_THROWER = registerBlock("potion_thrower",
+            () -> new PotionThrowerBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f)),
+            ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
